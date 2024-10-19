@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hostel Management System</title>
+    <title>Hostel Management System - Hostels</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <style>
@@ -20,8 +20,7 @@
             min-height: 100vh;
             align-items: center;
             justify-content: flex-start;
-            background: #ff6b6b; /* Original background color */
-            transition: background 0.5s ease; /* Smooth transition for background color */
+            background-color: lightpink;
         }
         .wrapper {
             position: fixed;
@@ -92,7 +91,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* Keep content at the top */
+            justify-content: flex-start;
             text-align: center;
             color: #202020;
             z-index: 0;
@@ -105,52 +104,15 @@
             font-weight: 700;
             margin-bottom: 20px;
         }
-        .content p {
-            font-size: 35px;
-            font-weight: 600;
-            margin-bottom: 50px; /* Space below text */
-        }
-        .cards {
-            display: flex;
-            justify-content: center;
-            margin-top: 100px; /* Adjusted space to push cards down further */
-            gap: 40px; /* Increased space between cards */
-            margin-bottom: 50px; /* Space between cards and footer */
-        }
-        .card {
-            background: transparent; /* No background color */
-            width: 300px; /* Increased width */
-            height: 400px; /* Increased height */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-            border-radius: 8px; /* Rounded corners */
-            overflow: hidden; /* To ensure image fits in the card */
-        }
-        .card img {
-            width: 100%; /* Full width of the card */
-            height: 100%; /* Full height of the card */
-            object-fit: cover; /* Maintain aspect ratio */
-            transition: transform 0.3s; /* Transition effect for image */
-        }
-        .card:hover img {
-            transform: scale(1.1); /* Scale image on hover */
-        }
         footer {
+            position: fixed;
+            bottom: 0;
             width: 100%;
             background-color: #459db1;
             color: white;
             text-align: center;
             padding: 10px 0;
             z-index: 3;
-            margin-top: auto; /* Push footer to the bottom of the page */
-        }
-        .spacer {
-            height: 1000px; /* Spacer to ensure there's enough content for scrolling */
-            background-color: rgba(255, 255, 255, 0.5); /* Light background for visibility */
-            margin: 20px 0; /* Space around the spacer */
         }
     </style>
 </head>
@@ -161,63 +123,23 @@
     <div class="wrapper">
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="user.html">User</a></li>
-            <li><a href="hostel.html">Hostel</a></li>
-            <li><a href="#">Room</a></li>
-            <li><a href="register.html">Hi,Guest</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="signup.html">Sign Up</a></li>
+            <li><a href="add_hostel.html">Add Hostel</a></li>
+            <li><a href="hostel_list.html">Hostel List</a></li>
         </ul>
     </div>
     
     <div class="content">
         <div class="title">
-            Welcome to the Hostel Management System!
+            Manage Hostels
         </div>
-        <p>
-            Manage your hostel efficiently with our comprehensive system.
-        </p>
-
-        <!-- Simple Cards Section -->
-        <div class="cards">
-            <div class="card">
-                <img src="hostel2.jpeg" alt="Hostel 1">
-            </div>
-            <div class="card">
-                <img src="Hostel3.jpeg" alt="Hostel 2">
-            </div>
-            <div class="card">
-                <img src="hostel1.jpeg" alt="Hostel 3">
-            </div>
-        </div>
-        <!-- End of Simple Cards Section -->
-
-        <div class="spacer"></div> <!-- Spacer for scrolling -->
-        
+        <p>Use the navigation above to add a new hostel or view the hostel list.</p>
     </div>
 
     <footer>
         <p>&copy; 2024 Hostel Management System. All rights reserved.</p>
     </footer>
-
-    <script>
-        let colorChanged = false; // Track if the color has been changed
-        const originalColor = '#ff6b6b'; // Original background color
-        const newColor = '#f7b733'; // New background color
-
-        // Change background color on scroll
-        window.addEventListener('scroll', function() {
-            // If user scrolls down and color hasn't been changed
-            if (!colorChanged && window.scrollY > 0) {
-                document.body.style.background = newColor; // Change to new color
-                colorChanged = true; // Mark as changed
-            }
-
-            // If user scrolls back up to the top
-            if (window.scrollY === 0) {
-                document.body.style.background = originalColor; // Change back to original color
-                colorChanged = false; // Reset color changed flag
-            }
-        });
-    </script>
 
 </body>
 </html>
