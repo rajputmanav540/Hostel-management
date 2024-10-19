@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User</title>
+    <link rel="stylesheet" href="style.css"> <!-- Your main CSS file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: flex-start; /* Changed to flex-start */
+            background-color: lightpink;
+            font-family: 'Poppins', sans-serif;
+        }
+        nav {
+            width: 100%;
+            background-color: #459db1;
+            padding: 15px 0;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 20px;
+        }
+        h1 {
+            margin: 20px 0;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 300px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4158d0;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #c850c0;
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #459db1;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="userlist.html">User List</a>
+    </nav>
+
+    <h1>Add User</h1>
+    <form id="user-form">
+        <input type="text" id="username" placeholder="Enter Name" required>
+        <input type="email" id="useremail" placeholder="Enter Email" required>
+        <button type="submit">Add User</button>
+    </form>
+
+    <footer>
+        <p>&copy; 2024 Hostel Management System. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // On form submission
+        document.getElementById('user-form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+
+            const username = document.getElementById('username').value;
+            const useremail = document.getElementById('useremail').value;
+
+            // Get existing users from local storage or initialize an empty array
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+
+            // Add the new user to the array
+            users.push({ name: username, email: useremail });
+
+            // Save the updated users array back to local storage
+            localStorage.setItem('users', JSON.stringify(users));
+
+            // Clear the form fields
+            document.getElementById('username').value = '';
+            document.getElementById('useremail').value = '';
+
+            // Show a success message
+            alert("User added successfully!");
+        });
+    </script>
+
+</body>
+</html>

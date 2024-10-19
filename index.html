@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostel Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: flex-start;
+            background-color: lightpink;
+        }
+        .wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(-135deg, #c850c0, #4158d0);
+            clip-path: circle(25px at calc(100% - 45px) 45px);
+            transition: all 0.3s ease-in-out;
+            z-index: 1;
+        }
+        #active:checked ~ .wrapper {
+            clip-path: circle(75%);
+        }
+        .menu-btn {
+            position: absolute;
+            z-index: 2;
+            right: 20px;
+            top: 20px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 50%;
+            font-size: 20px;
+            color: #fff;
+            cursor: pointer;
+            background: linear-gradient(-135deg, #c850c0, #4158d0);
+            transition: all 0.3s ease-in-out;
+        }
+        #active:checked ~ .menu-btn {
+            background: #fff;
+            color: #4158d0;
+        }
+        #active:checked ~ .menu-btn i:before {
+            content: "\f00d";
+        }
+        .wrapper ul {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            list-style: none;
+            text-align: center;
+            z-index: 2;
+        }
+        .wrapper ul li {
+            margin: 15px 0;
+        }
+        .wrapper ul li a {
+            text-decoration: none;
+            font-size: 30px;
+            font-weight: 500;
+            padding: 5px 30px;
+            color: #fff;
+            position: relative;
+            line-height: 50px;
+            transition: all 0.3s ease;
+        }
+        .wrapper ul li a:hover {
+            color: #4158d0;
+        }
+        input[type="checkbox"] {
+            display: none;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Keep content at the top */
+            text-align: center;
+            color: #202020;
+            z-index: 0;
+            min-height: 80vh; /* Set a minimum height for scrolling */
+            padding: 20px;
+            margin-top: 100px; /* Space at the top */
+        }
+        .content .title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            margin-top: auto; /* Push title to the bottom of the content area */
+        }
+        .content p {
+            font-size: 35px;
+            font-weight: 600;
+            margin-bottom: 50px; /* Space below text */
+        }
+        .cards {
+            display: flex;
+            justify-content: center;
+            margin-top: 100px; /* Adjusted space to push cards down further */
+            gap: 40px; /* Increased space between cards */
+            margin-bottom: 100px; /* Space between cards and footer */
+        }
+        .card {
+            background: transparent; /* No background color */
+            width: 300px; /* Increased width */
+            height: 400px; /* Increased height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            border-radius: 8px; /* Rounded corners */
+            overflow: hidden; /* To ensure image fits in the card */
+        }
+        .card img {
+            width: 100%; /* Full width of the card */
+            height: 100%; /* Full height of the card */
+            object-fit: cover; /* Maintain aspect ratio */
+            transition: transform 0.3s; /* Transition effect for image */
+        }
+        .card:hover img {
+            transform: scale(1.1); /* Scale image on hover */
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #459db1;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="checkbox" id="active">
+    <label for="active" class="menu-btn"><i class="fas fa-bars"></i></label>
+    <div class="wrapper">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="user.html">User</a></li>
+            <li><a href="#">Hostel</a></li>
+            <li><a href="#">Room</a></li>
+            <li><a href="#">Hi,Guest</a></li>
+        </ul>
+    </div>
+    
+    <div class="content">
+        <div class="title">
+            Welcome to the Hostel Management System!
+        </div>
+        <p>
+            Manage your hostel efficiently with our comprehensive system.
+        </p>
+
+        <!-- Simple Cards Section -->
+        <div class="cards">
+            <div class="card">
+                <img src="hostel2.jpeg" alt="Hostel 1">
+            </div>
+            <div class="card">
+                <img src="Hostel3.jpeg" alt="Hostel 2">
+            </div>
+            <div class="card">
+                <img src="hostel2.jpeg" alt="Hostel 3">
+            </div>
+        </div>
+        <!-- End of Simple Cards Section -->
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Hostel Management System. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
